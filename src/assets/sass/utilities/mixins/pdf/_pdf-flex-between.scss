@@ -1,0 +1,5 @@
+@mixin pdf-flex-beetween {
+	justify-content: space-between;
+	-webkit-box-pack: justify;
+	-ms-flex-pack: justify;
+}

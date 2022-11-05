@@ -1,0 +1,25 @@
+.m-button-icon {
+	font-weight: 400;
+
+	@extend .l-button;
+
+	/* XS */
+	&.xs {
+		@include button-icon-size(28px, 20px);
+	}
+
+	/* SM */
+	&.sm {
+		@include button-icon-size(31px, 22px);
+	}
+
+	/* MD */
+	&.md {
+		@include button-icon-size($button-height-base, 24px);
+	}
+
+	/* LG */
+	&.lg {
+		@include button-icon-size(54px, $button-height-base);
+	}
+}

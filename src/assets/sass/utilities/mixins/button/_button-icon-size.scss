@@ -1,0 +1,8 @@
+@mixin button-icon-size($size, $icon-size) {
+	width: $size;
+	height: $size;
+	
+	&::before {
+		@include icon-size($icon-size);
+	}
+}

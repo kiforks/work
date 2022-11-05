@@ -1,0 +1,19 @@
+@mixin shadow($size: sm, $transition: $transition-short) {
+	transition: box-shadow $transition ease-in-out;
+	
+	@if $size == sm {
+		box-shadow: $shadow-static-sm;
+		
+		@include focus {
+			box-shadow: $shadow-focus-sm;
+		}
+	}
+	
+	@if $size == lg {
+		box-shadow: $shadow-static-lg;
+		
+		@include focus {
+			box-shadow: $shadow-focus-lg;
+		}
+	}
+}

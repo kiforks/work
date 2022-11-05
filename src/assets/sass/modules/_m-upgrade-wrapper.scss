@@ -1,0 +1,26 @@
+.m-upgrade-wrapper {
+	justify-content: center;
+
+	@include flex-height;
+
+	.upgrade-wrap {
+		justify-content: center;
+		padding: 10px 0;
+
+		@include flex-height;
+	}
+
+	&:not(.clean) {
+		@include media-mobile {
+			background-color: $color-white;
+		}
+
+		@include media-desktop {
+			background: radial-gradient(68.1% 38.83% at 50% 45.55%, $color-white 50.28%, rgba(255, 255, 255, 0) 100%), $color-gray-100;
+		}
+	}
+
+	@include media-desktop {
+		align-content: center;
+	}
+}

@@ -1,0 +1,63 @@
+@keyframes dialog-main-open {
+	from {
+		transform: translateY(-60%);
+		opacity: 0;
+	}
+
+	to {
+		transform: translateY(0);
+		opacity: 1;
+	}
+}
+
+@keyframes dialog-main-close {
+	from {
+		transform: translateY(0);
+		opacity: 1;
+	}
+
+	to {
+		transform: translateY(-60%);
+		opacity: 0;
+	}
+}
+
+@keyframes dialog-side-open {
+	from {
+		transform: translateX(100%);
+	}
+
+	to {
+		transform: translateX(0);
+	}
+}
+
+@keyframes dialog-side-close {
+	from {
+		transform: translateX(0);
+	}
+
+	to {
+		transform: translateX(100%);
+	}
+}
+
+@keyframes dialog-background {
+	from {
+		background: rgba(0, 0, 0, 0);
+	}
+
+	to {
+		background: rgba(0, 0, 0, 0.32);
+	}
+}
+
+@keyframes dialog-background-close {
+	from {
+		background: rgba(0, 0, 0, 0.32);
+	}
+
+	to {
+		background: rgba(0, 0, 0, 0);
+	}
+}

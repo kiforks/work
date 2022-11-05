@@ -1,0 +1,40 @@
+.l-wizard-scenario-page {
+	.container {
+		@include media-mobile {
+			padding: 10px 15px 15px !important;
+		}
+	}
+
+	.scenario-page-wrap {
+		max-width: 740px;
+		margin-right: auto;
+		margin-left: auto;
+	}
+
+	.scenario-page-title {
+		@include media-mobile {
+			display: none;
+		}
+
+		@include media-desktop {
+			margin-bottom: 25px;
+			font-weight: 800;
+			font-size: $h1;
+			text-align: center;
+		}
+	}
+
+	.scenario-page-actions {
+		padding-top: 50px;
+
+		.main-button {
+			@include media-mobile {
+				width: 100%;
+			}
+		}
+
+		@include media-desktop {
+			margin-left: auto;
+		}
+	}
+}

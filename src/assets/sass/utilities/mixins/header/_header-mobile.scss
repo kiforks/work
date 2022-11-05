@@ -1,0 +1,48 @@
+@mixin header-mobile($left: header-left-box, $center: header-center-box, $right: header-right-box) {
+	.#{$left},
+	.#{$right} {
+		@include media-mobile {
+			display: flex;
+
+			@include center(vertical);
+		}
+	}
+
+	.#{$left} {
+		@include media-mobile {
+			left: 5px;
+		}
+	}
+
+	.#{$right} {
+		@include media-mobile {
+			right: 10px;
+		}
+	}
+
+	.#{$center} {
+		.heading-type {
+			@include media-mobile {
+				font: inherit;
+			}
+		}
+
+		@include media-mobile {
+			text-align: center;
+			font-weight: 600;
+			font-size: $header-mobile-title-font-size;
+		}
+	}
+
+	@include media-mobile {
+		position: relative;
+		z-index: 1;
+		max-width: 100%;
+		min-height: $header-mobile-height;
+		padding: 0 $header-mobile-padding;
+		border-bottom: 1px solid $color-gray-200;
+		background-color: $color-white;
+
+		@include center-flex;
+	}
+}

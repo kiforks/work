@@ -1,0 +1,12 @@
+/* Responsive line-height. From px to % */
+@function lh($line-height, $font-size: false) {
+	@if not $font-size {
+		@return $line-height;
+	}
+	
+	@else {
+		$value: ($line-height * 100) / $font-size;
+		
+		@return $value / 100;
+	}
+}

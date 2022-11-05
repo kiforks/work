@@ -1,0 +1,25 @@
+.m-panel-main {
+	&.mobile {
+		&.sm {
+			@include panel(null, sm);
+		}
+
+		&:not(.sm) {
+			@include panel;
+		}
+	}
+
+	&:not(.mobile) {
+		&.sm {
+			@include media-desktop {
+				@include panel(null, sm);
+			}
+		}
+
+		&:not(.sm) {
+			@include media-desktop {
+				@include panel;
+			}
+		}
+	}
+}

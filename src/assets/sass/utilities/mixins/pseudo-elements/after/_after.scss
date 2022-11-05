@@ -1,0 +1,8 @@
+@mixin after($position: absolute) {
+	&::after {
+		content: '';
+		position: $position;
+		display: block;
+		@content;
+	}
+}

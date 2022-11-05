@@ -1,0 +1,51 @@
+@mixin button($color, $focus-color, $active-color, $active-shadow-color) {
+	&:not(.no-background) {
+		/** When button hasn't transparent background **/
+		&:not(.transparent) {
+			background-color: $color;
+			
+			@include focus {
+				background-color: $focus-color;
+			}
+			
+			&:active {
+				background-color: $active-color;
+				box-shadow: 0 0 0 1px $active-shadow-color, 0 1px 1px 0 rgba(0, 0, 0, 0.07),
+				0 0 0 4px $active-shadow-color;
+			}
+		}
+		
+		/** When button has transparent background **/
+		&.transparent {
+			color: $color;
+			border-color: $color;
+			
+			@include focus {
+				color: $color-white;
+				background-color: $focus-color;
+				border-color: $color;
+			}
+			
+			&:active {
+				background-color: $active-color;
+				box-shadow: 0 0 0 1px $active-shadow-color, 0 1px 1px 0 rgba(0, 0, 0, 0.07),
+				0 0 0 4px $active-shadow-color;
+			}
+		}
+	}
+	
+	/** When button hasn't background **/
+	&.no-background {
+		color: $color;
+		border: 0;
+		background-color: transparent;
+		
+		&:active {
+			color: $active-color;
+		}
+		
+		@include focus {
+			color: $focus-color;
+		}
+	}
+}

@@ -1,0 +1,7 @@
+@mixin icon-size($size: 20px) {
+	font-size: $size;
+}
+
+@mixin icon-size-i($size: 20px) {
+	font-size: $size !important;
+}

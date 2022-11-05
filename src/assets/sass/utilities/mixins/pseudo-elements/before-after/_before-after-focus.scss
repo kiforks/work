@@ -1,0 +1,10 @@
+@mixin before-after-focus {
+	&:hover::before,
+	&:focus::before,
+	&:active::before,
+	&:hover::after,
+	&:focus::after,
+	&:active::after {
+		@content;
+	}
+}

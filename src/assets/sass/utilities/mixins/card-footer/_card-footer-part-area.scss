@@ -1,0 +1,36 @@
+/* It makes the whole area of the footer clickable on desktop devices */
+@mixin card-footer-part-area {
+	position: relative;
+	display: grid;
+	width: 100%;
+	min-height: $card-footer-height;
+
+	@include before {
+		top: 0;
+		left: -15px;
+		width: calc(100% + 30px);
+		height: 1px;
+		border-top: 1px solid $color-gray-200;
+	}
+
+	footer {
+		@include center-flex;
+	}
+
+	a,
+	.footer-action {
+		position: absolute;
+		top: 0;
+		left: -15px;
+		z-index: $card-footer-z-index;
+		justify-content: center;
+		width: calc(100% + 30px);
+		height: 100%;
+		line-height: $card-footer-height; // Centering
+		text-align: center;
+	}
+
+	.footer-action {
+		@include reset-button;
+	}
+}

@@ -1,0 +1,5 @@
+.first-letter-up {
+	&::first-letter {
+		text-transform: uppercase !important;
+	}
+}

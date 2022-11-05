@@ -1,0 +1,4 @@
+/* Use only if it is height */
+@mixin line-height($line-height) {
+	line-height: $line-height;
+}

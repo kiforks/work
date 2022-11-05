@@ -1,0 +1,6 @@
+@mixin before-after-active {
+	&:active::before,
+	&:active::after {
+		@content;
+	}
+}

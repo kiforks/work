@@ -1,0 +1,7 @@
+@mixin focus {
+	&:active,
+	&:hover,
+	&:focus {
+		@content;
+	}
+}

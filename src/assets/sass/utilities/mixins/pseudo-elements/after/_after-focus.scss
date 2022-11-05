@@ -1,0 +1,7 @@
+@mixin after-focus {
+	&:active::before,
+	&:hover::before,
+	&:focus::before {
+		@content;
+	}
+}

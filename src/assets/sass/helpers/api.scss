@@ -1,0 +1,580 @@
+$helpers: () !default;
+
+/* stylelint-disable */
+$helpers: map-merge(
+	(
+		'align': (
+			property: vertical-align,
+			class: align,
+			values: baseline top middle bottom text-bottom text-top,
+		),
+		// Opacity helpers
+		'opacity':
+			(
+				property: opacity,
+				values: (
+					0: 0,
+					25: 0.25,
+					50: 0.5,
+					75: 0.75,
+					100: 1,
+				),
+			),
+		'overflow': (
+			property: overflow,
+			values: auto hidden visible scroll,
+		),
+		'display': (
+			responsive: true,
+			property: display,
+			class: d,
+			values: inline inline-block block grid table table-row table-cell flex inline-flex none,
+		),
+		'position': (
+			property: position,
+			values: static relative absolute fixed sticky,
+		),
+		'top': (
+			property: top,
+			values: (
+				0: 0,
+				50: 50%,
+				100: 100%,
+			),
+		),
+		'bottom': (
+			property: bottom,
+			values: (
+				0: 0,
+				50: 50%,
+				100: 100%,
+			),
+		),
+		'start': (
+			property: left,
+			class: start,
+			values: (
+				0: 0,
+				50: 50%,
+				100: 100%,
+			),
+		),
+		'end': (
+			property: right,
+			class: end,
+			values: (
+				0: 0,
+				50: 50%,
+				100: 100%,
+			),
+		),
+		'translate-middle': (
+			property: transform,
+			class: translate-middle,
+			values: (
+				null: translate(-50%, -50%),
+				x: translateX(-50%),
+				y: translateY(-50%),
+			),
+		),
+		'border': (
+			property: border,
+			values: (
+				null: var(--border-width) var(--border-style) var(--border-color),
+				0: 0,
+			),
+		),
+		'border-color': (
+			property: border-color,
+			class: border,
+			values:
+				map-merge(
+					$color-palette,
+					(
+						'none': 0,
+					)
+				),
+		),
+		'border-width': (
+			css-var: true,
+			css-variable-name: border-width,
+			class: border,
+			values: (
+				1: 1px,
+				2: 2px,
+				3: 3px,
+				4: 4px,
+				5: 5px,
+			),
+		),
+		// Sizing helpers
+		'width':
+			(
+				property: width,
+				class: w,
+				values: (
+					25: 25%,
+					50: 50%,
+					75: 75%,
+					100: 100%,
+					auto: auto,
+				),
+			),
+		'max-width': (
+			property: max-width,
+			class: mw,
+			values: (
+				100: 100%,
+			),
+		),
+		'viewport-width': (
+			property: width,
+			class: vw,
+			values: (
+				100: 100vw,
+			),
+		),
+		'min-viewport-width': (
+			property: min-width,
+			class: min-vw,
+			values: (
+				100: 100vw,
+			),
+		),
+		'height': (
+			property: height,
+			class: h,
+			values: (
+				25: 25%,
+				50: 50%,
+				75: 75%,
+				100: 100%,
+				auto: auto,
+			),
+		),
+		'max-height': (
+			property: max-height,
+			class: mh,
+			values: (
+				100: 100%,
+			),
+		),
+		'viewport-height': (
+			property: height,
+			class: vh,
+			values: (
+				100: 100vh,
+			),
+		),
+		'min-viewport-height': (
+			property: min-height,
+			class: min-vh,
+			values: (
+				100: 100vh,
+			),
+		),
+		// Flex helpers
+		'flex':
+			(
+				responsive: true,
+				property: flex,
+				values: (
+					fill: 1 1 auto,
+				),
+			),
+		'flex-direction': (
+			responsive: true,
+			property: flex-direction,
+			class: flex,
+			values: row column row-reverse column-reverse,
+		),
+		'flex-grow': (
+			responsive: true,
+			property: flex-grow,
+			class: flex,
+			values: (
+				grow-0: 0,
+				grow-1: 1,
+			),
+		),
+		'flex-shrink': (
+			responsive: true,
+			property: flex-shrink,
+			class: flex,
+			values: (
+				shrink-0: 0,
+				shrink-1: 1,
+			),
+		),
+		'flex-wrap': (
+			responsive: true,
+			property: flex-wrap,
+			class: flex,
+			values: wrap nowrap wrap-reverse,
+		),
+		'justify-content': (
+			responsive: true,
+			property: justify-content,
+			values: (
+				start: flex-start,
+				end: flex-end,
+				center: center,
+				between: space-between,
+				around: space-around,
+				evenly: space-evenly,
+			),
+		),
+		'align-items': (
+			responsive: true,
+			property: align-items,
+			values: (
+				start: flex-start,
+				end: flex-end,
+				center: center,
+				baseline: baseline,
+				stretch: stretch,
+			),
+		),
+		'align-content': (
+			responsive: true,
+			property: align-content,
+			values: (
+				start: flex-start,
+				end: flex-end,
+				center: center,
+				between: space-between,
+				around: space-around,
+				stretch: stretch,
+			),
+		),
+		'align-self': (
+			responsive: true,
+			property: align-self,
+			values: (
+				auto: auto,
+				start: flex-start,
+				end: flex-end,
+				center: center,
+				baseline: baseline,
+				stretch: stretch,
+			),
+		),
+		'order': (
+			responsive: true,
+			property: order,
+			values: (
+				first: -1,
+				0: 0,
+				1: 1,
+				2: 2,
+				3: 3,
+				4: 4,
+				5: 5,
+				last: 6,
+			),
+		),
+		// Margin helpers
+		'margin':
+			(
+				responsive: true,
+				property: margin,
+				class: m,
+				values:
+					map-merge(
+						$indents,
+						(
+							'auto': auto,
+						)
+					),
+			),
+		'margin-x': (
+			responsive: true,
+			property: margin-right margin-left,
+			class: mx,
+			values:
+				map-merge(
+					$indents,
+					(
+						'auto': auto,
+					)
+				),
+		),
+		'margin-y': (
+			responsive: true,
+			property: margin-top margin-bottom,
+			class: my,
+			values:
+				map-merge(
+					$indents,
+					(
+						'auto': auto,
+					)
+				),
+		),
+		'margin-top': (
+			responsive: true,
+			property: margin-top,
+			class: m-t,
+			values:
+				map-merge(
+					$indents,
+					(
+						'auto': auto,
+					)
+				),
+		),
+		'margin-right': (
+			responsive: true,
+			property: margin-right,
+			class: m-r,
+			values:
+				map-merge(
+					$indents,
+					(
+						'auto': auto,
+					)
+				),
+		),
+		'margin-bottom': (
+			responsive: true,
+			property: margin-bottom,
+			class: m-b,
+			values:
+				map-merge(
+					$indents,
+					(
+						'auto': auto,
+					)
+				),
+		),
+		'margin-left': (
+			responsive: true,
+			property: margin-left,
+			class: m-l,
+			values:
+				map-merge(
+					$indents,
+					(
+						'auto': auto,
+					)
+				),
+		),
+		// Padding helpers
+		'padding':
+			(
+				responsive: true,
+				property: padding,
+				class: p,
+				values: $indents,
+			),
+		'padding-x': (
+			responsive: true,
+			property: padding-right padding-left,
+			class: px,
+			values: $indents,
+		),
+		'padding-y': (
+			responsive: true,
+			property: padding-top padding-bottom,
+			class: py,
+			values:
+				map-merge(
+					$indents,
+					(
+						'auto': auto,
+					)
+				),
+		),
+		'padding-top': (
+			responsive: true,
+			property: padding-top,
+			class: p-t,
+			values: $indents,
+		),
+		'padding-right': (
+			responsive: true,
+			property: padding-right,
+			class: p-r,
+			values: $indents,
+		),
+		'padding-bottom': (
+			responsive: true,
+			property: padding-bottom,
+			class: p-b,
+			values: $indents,
+		),
+		'padding-left': (
+			responsive: true,
+			property: padding-left,
+			class: p-l,
+			values: $indents,
+		),
+		// Gap utility
+		'gap':
+			(
+				responsive: true,
+				property: gap,
+				class: gap,
+				values: auto,
+			),
+		// Text
+		'font-family':
+			(
+				property: font-family,
+				class: font-family,
+				values: (
+					remixicon: $font-family-remixicon,
+					proxima-nova: $font-family-proxima-nova,
+					mrdehaviland: $font-family-mrdehaviland,
+					arial: $font-family-arial,
+					base: $font-family-base,
+				),
+			),
+		'line-height': (
+			property: line-height,
+			class: lh,
+			values: (
+				1: 1,
+				base: $line-height-base,
+				heading: $line-height-heading,
+				small: $line-height-small,
+			),
+		),
+		'font-size': (
+			property: font-size,
+			class: text,
+			values: (
+				base: $text-base,
+				xs: $text-xs,
+				sm: $text-sm,
+				md: $text-md,
+				lg: $text-lg,
+				xl: $text-xl,
+				xxl: $text-xxl,
+				button-xs: $text-button-xs,
+				button-sm: $text-button-sm,
+				button-md: $text-button-md,
+				button-lh: $text-button-lg,
+				h1: $h1,
+				h2: $h2,
+				h3: $h3,
+				h4: $h4,
+				h5: $h5,
+				h6: $h6,
+			),
+		),
+		'text-button': (
+			property: font-size,
+			class: text-button,
+			values: (
+				xs: $text-xs,
+				sm: $text-sm,
+				md: $text-md,
+				lg: $text-lg,
+			),
+		),
+		'font-style': (
+			property: font-style,
+			class: fs,
+			values: italic normal,
+		),
+		'font-weight': (
+			property: font-weight,
+			class: fw,
+			values: (
+				light: 200,
+				lighter: 300,
+				normal: 400,
+				bold: 500,
+				semibold: 600,
+				bolder: 700,
+			),
+		),
+		'text-align': (
+			responsive: true,
+			property: text-align,
+			class: ta,
+			values: (
+				start: left,
+				end: right,
+				center: center,
+				justify: justify,
+			),
+		),
+		'text-decoration': (
+			property: text-decoration,
+			class: tt,
+			values: none underline line-through,
+		),
+		'text-transform': (
+			property: text-transform,
+			class: tt,
+			values: lowercase uppercase capitalize none,
+		),
+		'white-space': (
+			property: white-space,
+			class: whs,
+			values: (
+				wrap: normal,
+				nowrap: nowrap,
+				pre-line: pre-line,
+				pre-wrap: pre-wrap,
+			),
+		),
+		'word-wrap': (
+			property: word-wrap,
+			class: wow,
+			values: break-word normal break-all,
+		),
+		'word-break': (
+			property: word-break,
+			class: wob,
+			values: keep-all break-all break-word normal,
+		),
+		'color': (
+			property: color,
+			class: color,
+			values: inherit,
+		),
+		'background-color': (
+			property: background-color,
+			class: bg-color,
+			values: transparent,
+		),
+		'user-select': (
+			property: user-select,
+			values: all auto none,
+		),
+		'pointer-events': (
+			property: pointer-events,
+			class: pe,
+			values: none auto,
+		),
+		'visibility': (
+			property: visibility,
+			class: null,
+			values: (
+				visible: visible,
+				invisible: hidden,
+			),
+		),
+	),
+	$helpers
+);
+
+// Loop over each breakpoint
+@each $breakpoint in map-keys($breakpoints) {
+	// Generate media query if needed
+	@include media-min($breakpoint) {
+		$infix: breakpoint-infix($breakpoint, $breakpoints);
+
+		// Loop over each utility property
+		@each $key, $helper in $helpers {
+			// The utility can be disabled with `false`, thus check if the utility is a map first
+			// Only proceed if responsive media queries are enabled or if it's the base media query
+			@if type-of($helper) == 'map' and (map-get($helper, responsive) or $infix == '') {
+				@include generate-helpers($helper, $infix);
+			}
+		}
+	}
+}

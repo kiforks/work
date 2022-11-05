@@ -1,0 +1,14 @@
+/* From px to rem */
+@function rem($font-size) {
+	@if not unitless($font-size) {
+		$font-size: strip-units($font-size);
+	}
+	
+	$base: 14px;
+	
+	@if not unitless($base) {
+		$base: strip-units($base);
+	}
+	
+	@return ($font-size / $base) * 1rem;
+}

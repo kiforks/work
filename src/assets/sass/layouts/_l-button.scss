@@ -1,0 +1,93 @@
+.l-button {
+	line-height: $line-height-small;
+	border-radius: 4px;
+	transition: all $transition-medium ease;
+
+	@include center-inline-flex;
+
+	/** When button is transparent **/
+	&.transparent {
+		background-color: transparent;
+		border-width: 1px;
+		border-style: solid;
+	}
+
+	/* Primary type */
+	&.primary {
+		@include button($color-green-500, $color-green-600, $color-green-700, $color-green-200);
+	}
+
+	/* Warning type */
+	&.warning {
+		@include button($color-yellow-700, $color-yellow-800, $color-yellow-900, $color-yellow-200);
+	}
+
+	/* Danger type */
+	&.danger {
+		@include button($color-red-500, $color-red-600, $color-red-700, $color-red-200);
+	}
+
+	/* Info type */
+	&.info {
+		@include button($color-purple-500, $color-purple-800, $color-purple-900, $color-purple-300);
+	}
+
+	/* Master type */
+	&.master {
+		@include button($color-gray-600, $color-gray-700, $color-gray-800, $color-gray-200);
+	}
+
+	/* Dark type */
+	&.dark {
+		@include button($color-gray-1000, $color-gray-700, $color-gray-600, $color-gray-200);
+	}
+
+	/* Default type */
+	&.default {
+		color: $color-gray-700;
+		box-shadow: $button-box-shadow;
+
+		@include focus {
+			box-shadow: $button-box-shadow-focus;
+		}
+
+		&:active {
+			box-shadow: $button-box-shadow-active;
+		}
+
+		/** When button isn't disabled **/
+		&:not(.transparent) {
+			background-color: $color-white;
+		}
+	}
+
+	/** When button is disabled **/
+	&[disabled],
+	&.disabled {
+		color: $color-gray-600 !important;
+		background-color: $color-gray-200 !important;
+		border-color: $color-gray-200 !important;
+		cursor: default;
+		user-select: none;
+		pointer-events: none;
+
+		[class*='ri-'] {
+			color: inherit !important;
+
+			&::before {
+				color: inherit !important;
+			}
+		}
+	}
+
+	/** When button isn't transparent **/
+	&:not(.no-background) {
+		&:not(.transparent) {
+			border-width: 0;
+
+			&:not(.default) {
+				color: $color-white;
+			}
+		}
+	}
+}

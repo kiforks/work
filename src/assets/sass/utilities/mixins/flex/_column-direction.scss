@@ -1,0 +1,9 @@
+@mixin column-direction($direction) {
+	@if $direction == column-reverse {
+		flex-direction: column-reverse;
+	}
+	
+	@if $direction == column {
+		flex-direction: column;
+	}
+}

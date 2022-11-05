@@ -1,0 +1,4 @@
+@mixin pdf-indent($indent: $pdf-indent) {
+	margin: $indent 0;
+	padding: $indent 0;
+}
