@@ -1,8 +1,0 @@
-@mixin before-after-hover {
-	&:hover::before,
-	&:focus::before,
-	&:hover::after,
-	&:focus::after {
-		@content;
-	}
-}

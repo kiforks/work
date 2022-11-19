@@ -1,6 +1,0 @@
-/* Retina */
-@mixin retina-css {
-	@media (min-resolution: $retina-dpi), (min-resolution: $retina-dppx) {
-		@content;
-	}
-}

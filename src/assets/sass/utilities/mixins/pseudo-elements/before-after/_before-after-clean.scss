@@ -1,6 +1,0 @@
-@mixin before-after-clean {
-	&::before,
-	&::after {
-		@content;
-	}
-}

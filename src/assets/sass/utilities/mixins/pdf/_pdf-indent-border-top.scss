@@ -1,5 +1,0 @@
-@mixin pdf-indent-border-top($color: $pdf-color-gray, $indent: $pdf-indent,
-$border-style: $pdf-border-style) {
-	@include pdf-indent-top($indent);
-	@include pdf-border-top($color, $border-style);
-}

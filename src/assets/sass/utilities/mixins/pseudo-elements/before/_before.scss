@@ -1,8 +1,0 @@
-@mixin before($position: absolute) {
-	&::before {
-		content: '';
-		position: $position;
-		display: block;
-		@content;
-	}
-}

@@ -1,9 +1,0 @@
-@mixin flex($direction: row) {
-	display: flex;
-	
-	@if $direction == row {
-		flex-wrap: wrap;
-	}
-	
-	@include column-direction($direction);
-}

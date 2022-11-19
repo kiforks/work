@@ -1,5 +1,0 @@
-@mixin after-active {
-	&:active::after {
-		@content;
-	}
-}
