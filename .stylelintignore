@@ -1,5 +1,0 @@
-/node_modules/
-**/*/libraries/**/*.scss
-**/*/utilities/mixins/**/*.scss
-**/*/utilities/variables/**/*.scss
-**/*/helpers/**/*.scss
