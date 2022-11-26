@@ -20,8 +20,6 @@ export class PasswordShouldMatchDirective implements Validator {
 
 		confirmPassword?.setErrors(error);
 
-		console.log(control);
-
 		return error;
 	}
 }
