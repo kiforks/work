@@ -1,4 +1,4 @@
-<form class="form" #form="ngForm" (reset)="onReset($event)" (ngSubmit)="onSubmitForm($event)">
+<form class="form" #form="ngForm" (reset)="onReset($event)" (ngSubmit)="onSubmitForm(form, $event)">
 	<!-- First name -->
 	<div class="form-field">
 		<label for="name">First Name</label>

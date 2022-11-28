@@ -55,9 +55,11 @@ export class TemplateFormsPageComponent implements OnInit, AfterViewInit {
 		});
 	}
 
-	onSubmitForm(e: SubmitEvent) {
+	onSubmitForm(form: any, e: SubmitEvent) {
+		console.log(e);
+		console.log(form.form.controls);
 		// Strategy 1 - Reset form values, validation statuses, making controls untouched, pristine, etc
-    this.formDir.resetForm();
+		this.formDir.resetForm();
 	}
 
 	onReset(e: Event) {
@@ -67,7 +69,7 @@ export class TemplateFormsPageComponent implements OnInit, AfterViewInit {
 
 	onResetInitialClick(e: Event) {
 		e.preventDefault();
-    // Strategy 2 - Reset only control statuses but not values.
+		// Strategy 2 - Reset only control statuses but not values.
 		this.formDir.resetForm(this.initialFormValues);
 	}
 }
