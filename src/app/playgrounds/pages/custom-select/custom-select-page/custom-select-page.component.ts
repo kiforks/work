@@ -2,7 +2,6 @@ import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit } from '@
 import { CommonModule } from '@angular/common';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
 import { User } from '../../../../core/user';
-
 import { SelectModule } from '../../../../modules/select/select.module';
 import { SelectValue } from '../../../../modules/select/interfaces/select-value.interface';
 
