@@ -1,13 +1,11 @@
-import {ChangeDetectionStrategy, Component, CUSTOM_ELEMENTS_SCHEMA, OnDestroy, OnInit} from '@angular/core';
+import { ChangeDetectionStrategy, Component, CUSTOM_ELEMENTS_SCHEMA, OnDestroy, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import '@polymer/paper-input/paper-textarea';
 import { FormBuilder, ReactiveFormsModule } from '@angular/forms';
 import { EditableContentValueAccessor } from '../value-accessor/editable-content.directive';
-import {
-	RatingOptions,
-	RatingPickerComponent,
-} from '../../../../../../../custom-form-controls/src/lib/components/rating-picker/rating-picker.component';
-import {Subscription} from 'rxjs';
+
+import { Subscription } from 'rxjs';
+import { RatingOptions, RatingPickerComponent } from 'custom-form-controls';
 
 interface Rating {
 	reviewText: string;
@@ -24,7 +22,7 @@ interface Rating {
 	changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class RatingPickerPageComponent implements OnInit, OnDestroy {
-  private sub!: Subscription;
+	private sub!: Subscription;
 
 	form = this.fb.group<Rating>({
 		reviewText: '',
@@ -34,14 +32,14 @@ export class RatingPickerPageComponent implements OnInit, OnDestroy {
 	constructor(private fb: FormBuilder) {}
 
 	ngOnInit(): void {
-    this.sub = this.form.valueChanges.subscribe(console.log);
-  }
+		this.sub = this.form.valueChanges.subscribe(console.log);
+	}
 
-  ngOnDestroy() {
-    this.sub.unsubscribe();
-  }
+	ngOnDestroy() {
+		this.sub.unsubscribe();
+	}
 
-  onSubmit() {
+	onSubmit() {
 		console.log(this.form.value);
 		this.form.reset();
 	}

@@ -1,4 +1,4 @@
-import { AfterViewInit, ChangeDetectionStrategy, Component, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, ChangeDetectionStrategy, Component, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, NgForm } from '@angular/forms';
 
@@ -15,7 +15,7 @@ import { UniqueNicknameDirective } from '../../directives/validators/unique-nick
 	standalone: true,
 	imports: [CommonModule, FormsModule, BanWordsDirective, PasswordShouldMatchDirective, UniqueNicknameDirective],
 	templateUrl: './template-forms-page.component.html',
-	styleUrls: ['../../../../scss/common-page.scss', '../../', './template-forms-page.component.scss'],
+	styleUrls: ['../../../../scss/common-page.scss', '../../../../scss/common-form.scss'],
 	changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class TemplateFormsPageComponent implements AfterViewInit {

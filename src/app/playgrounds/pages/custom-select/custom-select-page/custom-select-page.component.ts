@@ -1,8 +1,8 @@
 import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
-import { SelectModule, SelectValue } from '../../../../../../../custom-form-controls/src/public-api';
 import { User } from '../../../../core/user';
+import { SelectModule, SelectValue } from 'custom-form-controls';
 
 @Component({
 	selector: 'app-custom-select-page',

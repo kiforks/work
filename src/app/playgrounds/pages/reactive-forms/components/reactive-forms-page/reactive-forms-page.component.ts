@@ -25,7 +25,7 @@ import { UniqueNicknameValidator } from '../../validators/unique-nickname.valida
 	standalone: true,
 	imports: [CommonModule, ReactiveFormsModule],
 	templateUrl: './reactive-forms-page.component.html',
-	styleUrls: ['../../../../scss/common-page.scss', '../../common-form.scss', './reactive-forms-page.component.scss'],
+	styleUrls: ['../../../../scss/common-page.scss', '../../../../scss/common-form.scss', './reactive-forms-page.component.scss'],
 	changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ReactiveFormsPageComponent implements OnInit, OnDestroy {
