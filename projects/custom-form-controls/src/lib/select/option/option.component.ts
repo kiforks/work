@@ -1,74 +1,49 @@
-import { Highlightable } from '@angular/cdk/a11y';
-import {
-	ChangeDetectionStrategy,
-	ChangeDetectorRef,
-	Component,
-	ElementRef,
-	EventEmitter,
-	HostBinding,
-	HostListener,
-	Input,
-	OnInit,
-	Output,
-} from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, EventEmitter, HostBinding, HostListener, Input, OnInit, Output } from '@angular/core';
 
 @Component({
-	selector: 'cfc-option',
-	templateUrl: './option.component.html',
-	styleUrls: ['./option.component.scss'],
-	changeDetection: ChangeDetectionStrategy.OnPush,
+  selector: 'cfc-option',
+  templateUrl: './option.component.html',
+  styleUrls: ['./option.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class OptionComponent<T> implements OnInit, Highlightable {
-	@Input()
-	value: T | null = null;
+export class OptionComponent<T> implements OnInit {
 
-	@Input()
-	disabledReason = '';
+  @Input()
+  value: T | null = null;
 
-	@Input()
-	@HostBinding('class.disabled')
-	disabled = false;
+  @Input()
+  disabledReason = '';
 
-	@Output()
-	selected = new EventEmitter<OptionComponent<T>>();
+  @Input()
+  @HostBinding('class.disabled')
+  disabled = false;
 
-	@HostListener('click')
-	protected select() {
-		if (!this.disabled) {
-			this.highlightAsSelected();
-			this.selected.emit(this);
-		}
-	}
-	@HostBinding('class.selected')
-	protected isSelected = false;
+  @Output()
+  selected = new EventEmitter<OptionComponent<T>>();
 
-	@HostBinding('class.active')
-	protected isActive = false;
+  @HostListener('click')
+  protected select() {
+    if (!this.disabled) {
+      this.highlightAsSelected();
+      this.selected.emit(this);
+    }
+  }
+  @HostBinding('class.selected')
+  protected isSelected = false;
 
-	constructor(private cd: ChangeDetectorRef, private el: ElementRef<HTMLElement>) {}
+  constructor(private cd: ChangeDetectorRef) { }
 
-	setActiveStyles(): void {
-		this.isActive = true;
-		this.cd.markForCheck();
-	}
-	setInactiveStyles(): void {
-		this.isActive = false;
-		this.cd.markForCheck();
-	}
+  ngOnInit(): void {
+  }
 
-	scrollIntoView(options?: ScrollIntoViewOptions) {
-		this.el.nativeElement.scrollIntoView(options);
-	}
+  highlightAsSelected() {
+    this.isSelected = true;
+    this.cd.markForCheck();
+  }
 
-	ngOnInit(): void {}
+  deselect() {
+    this.isSelected = false;
+    this.cd.markForCheck();
+  }
 
-	highlightAsSelected() {
-		this.isSelected = true;
-		this.cd.markForCheck();
-	}
-
-	deselect() {
-		this.isSelected = false;
-		this.cd.markForCheck();
-	}
 }

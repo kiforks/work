@@ -1,10 +1,12 @@
 :host {
   width: 100%;
+  // some additional fixes to apply validation highlights
+  display: block;
+  border-radius: var(--border-radius, 8px);
 }
-
 .rating-options {
   margin: 0;
-  padding: var(--spacing-step);
+  padding: var(--spacing-step, 4px);
   list-style: none;
   display: flex;
   box-sizing: border-box;
@@ -16,7 +18,6 @@
   &.disabled {
     opacity: 0.5;
     pointer-events: none;
-    cursor: default;
   }
 
   li {
@@ -26,14 +27,8 @@
     box-sizing: border-box;
     font-size: var(--font-size-picker-option, 26px);
 
-    &.active {
-      cursor: default;
-      pointer-events: none;
-    }
-
-    &:hover,
-    &.active {
-      background-color: cadetblue;
+    &:hover, &.active {
+        background-color: var(--color-picker-bg-active, #daeefa);
     }
   }
 }
