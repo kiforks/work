@@ -5,7 +5,7 @@ import { FormBuilder, ReactiveFormsModule } from '@angular/forms';
 import { EditableContentValueAccessor } from '../value-accessor/editable-content.directive';
 
 import { Subscription } from 'rxjs';
-import { RatingOptions, RatingPickerComponent } from 'custom-form-controls';
+import { RatingOptions, RatingPickerComponent } from '../../../../components/rating-picker/rating-picker.component';
 
 interface Rating {
 	reviewText: string;
