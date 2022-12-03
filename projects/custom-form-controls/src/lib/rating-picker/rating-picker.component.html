@@ -1,0 +1,6 @@
+<ul class="rating-options" [class.disabled]="disabled">
+	<li [class.active]="value === 'great'" (click)="setValue('great')">😊</li>
+	<li [class.active]="value === 'good'" (click)="setValue('good')">👌</li>
+	<li [class.active]="value === 'neutral'" (click)="setValue('neutral')">😐</li>
+	<li [class.active]="value === 'bad'" (click)="setValue('bad')">😕</li>
+</ul>

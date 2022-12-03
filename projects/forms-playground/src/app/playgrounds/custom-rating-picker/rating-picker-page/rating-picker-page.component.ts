@@ -1,35 +1,48 @@
-import { ChangeDetectionStrategy, Component, CUSTOM_ELEMENTS_SCHEMA, OnInit } from '@angular/core';
+import {ChangeDetectionStrategy, Component, CUSTOM_ELEMENTS_SCHEMA, OnDestroy, OnInit} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import '@polymer/paper-input/paper-textarea';
 import { FormBuilder, ReactiveFormsModule } from '@angular/forms';
 import { EditableContentValueAccessor } from '../value-accessor/editable-content.directive';
+import {
+	RatingOptions,
+	RatingPickerComponent,
+} from '../../../../../../custom-form-controls/src/lib/rating-picker/rating-picker.component';
+import {Subscription} from 'rxjs';
+
+interface Rating {
+	reviewText: string;
+	reviewRating: RatingOptions;
+}
 
 @Component({
-  selector: 'app-rating-picker-page',
-  standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, EditableContentValueAccessor],
-  templateUrl: './rating-picker-page.component.html',
-  styleUrls: [
-    '../../common-page.scss',
-    './rating-picker-page.component.scss',
-  ],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA],
-  changeDetection: ChangeDetectionStrategy.OnPush
+	selector: 'app-rating-picker-page',
+	standalone: true,
+	imports: [CommonModule, ReactiveFormsModule, EditableContentValueAccessor, RatingPickerComponent],
+	templateUrl: './rating-picker-page.component.html',
+	styleUrls: ['../../common-page.scss', './rating-picker-page.component.scss'],
+	schemas: [CUSTOM_ELEMENTS_SCHEMA],
+	changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class RatingPickerPageComponent implements OnInit {
+export class RatingPickerPageComponent implements OnInit, OnDestroy {
+  private sub!: Subscription;
 
-  form = this.fb.group({
-    reviewText: ''
-  })
+	form = this.fb.group<Rating>({
+		reviewText: '',
+		reviewRating: null,
+	});
 
-  constructor(private fb: FormBuilder) { }
+	constructor(private fb: FormBuilder) {}
 
-  ngOnInit(): void {
+	ngOnInit(): void {
+    this.sub = this.form.valueChanges.subscribe(console.log);
+  }
+
+  ngOnDestroy() {
+    this.sub.unsubscribe();
   }
 
   onSubmit() {
-    console.log(this.form.value);
-    this.form.reset();
-  }
-
+		console.log(this.form.value);
+		this.form.reset();
+	}
 }
