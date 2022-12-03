@@ -33,6 +33,7 @@
     "@angular/cli": "~14.2.3",
     "@angular/compiler-cli": "^14.2.3",
     "@types/jest": "^28.1.2",
+    "angular-cli-ghpages": "^1.0.5",
     "eslint": "^8.29.0",
     "jest": "^28.1.1",
     "ng-packagr": "^14.0.0",
